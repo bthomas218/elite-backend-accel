@@ -26,6 +26,9 @@ services:
     environment:
       - PORT=3000
       - DATABASE_URL=postgresql://elite_user:elite_password@postgres-db:5432/elite_core?schema=public
+      - OLLAMA_HOST=http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
       postgres-db:
         condition: service_healthy

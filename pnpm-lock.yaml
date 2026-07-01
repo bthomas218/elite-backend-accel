@@ -17,6 +17,9 @@ importers:
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2
+      ollama:
+        specifier: ^0.6.3
+        version: 0.6.3
       pg:
         specifier: ^8.22.0
         version: 8.22.0
@@ -520,6 +523,9 @@ packages:
   ohash@2.0.11:
     resolution: {integrity: sha512-RdR9FQrFwNBNXAr4GixM8YaRZRJ5PUWbKYbE5eOsrwAjJW0q2REGcf79oYPsLyskQCZG1PLN+S/K1V00joZAoQ==}
 
+  ollama@0.6.3:
+    resolution: {integrity: sha512-KEWEhIqE5wtfzEIZbDCLH51VFZ6Z3ZSa6sIOg/E/tBV8S51flyqBOXi+bRxlOYKDf8i327zG9eSTb8IJxvm3Zg==}
+
   path-key@3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}
     engines: {node: '>=8'}
@@ -692,6 +698,9 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  whatwg-fetch@3.6.20:
+    resolution: {integrity: sha512-EqhiFU6daOA8kpjOWTL0olhVOF3i7OrFzSYiGsEMB8GcXS+RrzauAERX65xMeNWVqxA6HXH2m69Z9LaKKdisfg==}
 
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
@@ -1132,6 +1141,10 @@ snapshots:
 
   ohash@2.0.11: {}
 
+  ollama@0.6.3:
+    dependencies:
+      whatwg-fetch: 3.6.20
+
   path-key@3.1.1: {}
 
   pathe@2.0.3: {}
@@ -1273,6 +1286,8 @@ snapshots:
   valibot@1.2.0(typescript@6.0.3):
     optionalDependencies:
       typescript: 6.0.3
+
+  whatwg-fetch@3.6.20: {}
 
   which@2.0.2:
     dependencies:
