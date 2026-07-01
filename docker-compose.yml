@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  postgres-db:
+    image: postgres:16-alpine
+    container_name: elite_postgres
+    environment:
+      POSTGRES_USER: elite_user
+      POSTGRES_PASSWORD: elite_password
+      POSTGRES_DB: elite_core
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U elite_user -d elite_core"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api-service:
+    build: .
+    container_name: elite_api
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - DATABASE_URL=postgresql://elite_user:elite_password@postgres-db:5432/elite_core?schema=public
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
